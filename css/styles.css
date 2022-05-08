@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Akshar&family=Lato&display=swap");
+.fundamentalStyles, .c-point .corpus1, .c-point .services-container .service1, .c-point .services-container .service2, .c-point .services-container .service3, .c-point .basket-container, .c-point .basket-container #basket {
+  background-color: rgb(6, 6, 6);
+  align-items: center;
+  padding: 1%;
+  max-width: 95%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.buttonClassic, .c-point .services-container .service1 .precioMini-container #idMini, .c-point .services-container .service2 .precioMass-container .idMass, .c-point .services-container .service3 .precioSupreme-container .idSupreme {
+  width: 22%;
+  background-color: rgb(12, 12, 12);
+  padding: 0.3%;
+  color: magenta;
+  margin-left: 60%;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
+  font-size: 3.2vh;
+  font-weight: bolder;
+}
+
+.fontSizeClassic, .c-point .corpus1 .text-container .text1, .c-point .corpus1 .text-container .text2, .c-point .services-container .service1 .precioMini-container h2, .c-point .services-container .service1 .precioMini-container #precioMini, .c-point .services-container .service2 .precioMass-container h2, .c-point .services-container .service2 .precioMass-container #precioMass, .c-point .services-container .service3 .precioSupreme-container h2, .c-point .services-container .service3 .precioSupreme-container #precioSupreme, .c-point .basket-container #total {
+  font-size: 3.8vh;
+}
+
+.fontSizeSmaller, .c-point .services-container .service1 .precioMini-container p, .c-point .services-container .service2 .precioMass-container p, .c-point .services-container .service3 .precioSupreme-container p {
+  font-size: 2vh;
+}
+
+.fontSizeBig, .c-point .corpus1 .text-container .title1 {
+  font-size: 7vh;
+}
+
+.fontSizeClassicR {
+  font-size: 2.8vh;
+}
+
+.fontSizeSmallerR {
+  font-size: 1vh;
+}
+
+.fontSizeBigR {
+  font-size: 3.8vh;
+}
+
+* {
+  padding: 0%;
+  margin: 0%;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: black;
+  margin: 1%;
+}
+
+nav {
+  background: black;
+  border-bottom: gray outset 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+nav ul {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+nav ul li {
+  font-size: 3vh;
+}
+nav ul li a {
+  text-decoration: none;
+  border-radius: 10px;
+}
+nav ul li .li1 img {
+  width: 40%;
+}
+nav ul li .li2 {
+  color: yellow;
+}
+nav ul li .li3 {
+  color: magenta;
+}
+nav ul li .li4 {
+  color: cyan;
+}
+nav ul li .li5 {
+  color: white;
+}
+nav ul li:not(:first-child) a {
+  padding: 5%;
+}
+nav ul li:not(:first-child) a:hover {
+  background-color: rgb(20, 20, 20);
+}
+
+.c-point {
+  margin-top: 6%;
+}
+.c-point .corpus1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: yellow;
+}
+.c-point .corpus1 .img-container1 img {
+  width: 1000px;
+  border-radius: 3px;
+}
+.c-point .corpus1 .text-container .title1 {
+  margin: 1%;
+}
+.c-point .corpus1 .text-container .text1 {
+  margin: 1%;
+}
+.c-point .corpus1 .text-container .text2 {
+  margin: 1%;
+}
+.c-point .corpus1:hover {
+  background-color: rgb(12, 12, 12);
+}
+.c-point .services-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: magenta;
+}
+.c-point .services-container .service1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.c-point .services-container .service1 .img-container2 img {
+  width: 500px;
+}
+.c-point .services-container .service1 .precioMini-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.c-point .services-container .service1 .precioMini-container h2,
+.c-point .services-container .service1 .precioMini-container p {
+  margin-left: 3%;
+}
+.c-point .services-container .service1 .precioMini-container #precioMini {
+  margin-top: 5%;
+}
+.c-point .services-container .service1 .precioMini-container #idMini:hover {
+  background-color: rgb(18, 18, 18);
+}
+.c-point .services-container .service1:hover {
+  background-color: rgb(12, 12, 12);
+}
+.c-point .services-container .service2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1%;
+  align-items: center;
+}
+.c-point .services-container .service2 .img-container3 img {
+  width: 500px;
+}
+.c-point .services-container .service2 .precioMass-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.c-point .services-container .service2 .precioMass-container h2,
+.c-point .services-container .service2 .precioMass-container p {
+  margin-left: 3%;
+}
+.c-point .services-container .service2 .precioMass-container #precioMass {
+  margin-top: 5%;
+}
+.c-point .services-container .service2 .precioMass-container .idMass:hover {
+  background-color: rgb(18, 18, 18);
+}
+.c-point .services-container .service2:hover {
+  background-color: rgb(12, 12, 12);
+}
+.c-point .services-container .service3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1%;
+  align-items: center;
+}
+.c-point .services-container .service3 .img-container4 img {
+  width: 500px;
+}
+.c-point .services-container .service3 .precioSupreme-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.c-point .services-container .service3 .precioSupreme-container h2,
+.c-point .services-container .service3 .precioSupreme-container p {
+  margin-left: 3%;
+}
+.c-point .services-container .service3 .precioSupreme-container #precioSupreme {
+  margin-top: 5%;
+}
+.c-point .services-container .service3 .precioSupreme-container .idSupreme:hover {
+  background-color: rgb(18, 18, 18);
+}
+.c-point .services-container .service3:hover {
+  background-color: rgb(12, 12, 12);
+}
+.c-point .basket-container {
+  color: magenta;
+  margin-top: 1%;
+}
+.c-point .basket-container #basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.c-point .basket-container #basket .basket-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1%;
+}
+.c-point .basket-container #basket .basket-item .img-container-basket img {
+  width: 400px;
+}
+.c-point .basket-container #total {
+  display: flex;
+  justify-content: right;
+}
+.c-point .basket-container:hover {
+  background-color: rgb(12, 12, 12);
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-top: 1%;
+  padding: 0.5%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background-color: rgb(6, 6, 6);
+  border-radius: 10px;
+  color: white;
+}
+
+footer:hover {
+  background-color: rgb(12, 12, 12);
+}
+
+/*# sourceMappingURL=styles.css.map */

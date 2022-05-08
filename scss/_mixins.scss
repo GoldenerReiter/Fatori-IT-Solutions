@@ -1,0 +1,14 @@
+@mixin gridder($display, $gt-columns) {
+    display: $display;
+    grid-template-columns: $gt-columns;
+  }
+@mixin supah-gridder($display, $gt-columns, $gt-rows) {
+  display: $display;
+  grid-template-columns: $gt-columns;
+  grid-template-rows: $gt-rows;
+}
+@mixin flexer($display, $fdirection, $justify) {
+  display: $display;
+  flex-direction: $fdirection;
+  justify-content: $justify;
+}

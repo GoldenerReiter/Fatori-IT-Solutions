@@ -1,0 +1,247 @@
+@use "mixins";
+@use "extends";
+
+@import url("https://fonts.googleapis.com/css2?family=Akshar&family=Lato&display=swap");
+
+* {
+  padding: 0%;
+  margin: 0%;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: black;
+  margin: 1%;
+}
+
+nav {
+  background: black;
+  border-bottom: gray outset 1px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  ul {
+    @include mixins.gridder(grid, 3fr 1fr 1fr 1fr 1fr);
+    align-items: center;
+    li {
+      font-size: 3vh;
+      a {
+        text-decoration: none;
+        border-radius: 10px;
+      }
+      .li1 {
+        img {
+          width: 40%;
+        }
+      }
+      .li2 {
+        color: yellow;
+      }
+      .li3 {
+        color: magenta;
+      }
+      .li4 {
+        color: cyan;
+      }
+      .li5 {
+        color: white;
+      }
+    }
+    li:not(:first-child) {
+      a {
+        padding: 5%;
+      }
+      a:hover {
+        background-color: rgb(20, 20, 20);
+      }
+    }
+  }
+}
+
+.c-point {
+  margin-top: 6%;
+  .corpus1 {
+    @include mixins.flexer(flex, row, center);
+    @extend .fundamentalStyles;
+    color: yellow;
+    .img-container1 {
+      img {
+        width: 1000px;
+        border-radius: 3px;
+      }
+    }
+    .text-container {
+      .title1 {
+        margin: 1%;
+        @extend .fontSizeBig;
+      }
+      .text1 {
+        margin: 1%;
+        @extend .fontSizeClassic;
+      }
+      .text2 {
+        margin: 1%;
+        @extend .fontSizeClassic;
+      }
+    }
+  }
+  .corpus1:hover {
+    background-color: rgb(12, 12, 12);
+  }
+  .services-container {
+    @include mixins.flexer(flex, column, center);
+    color: magenta;
+    .service1 {
+      @include mixins.flexer(flex, row, center);
+      @extend .fundamentalStyles;
+      align-items: center;
+      .img-container2 {
+        img {
+          width: 500px;
+        }
+      }
+      .precioMini-container {
+        @include mixins.flexer(flex, column, center);
+        h2,
+        p {
+          margin-left: 3%;
+        }
+        h2{
+          @extend .fontSizeClassic;
+        }
+        p {
+          @extend .fontSizeSmaller;
+        }
+        #precioMini {
+          margin-top: 5%;
+          @extend .fontSizeClassic;
+        }
+        #idMini {
+          @extend .buttonClassic;
+        }
+        #idMini:hover {
+          background-color: rgb(18, 18, 18);
+        }
+      }
+    }
+    .service1:hover {
+      background-color: rgb(12, 12, 12);
+    }
+    .service2 {
+      @include mixins.flexer(flex, row, center);
+      @extend .fundamentalStyles;
+      margin-top: 1%;
+      align-items: center;
+      .img-container3 {
+        img {
+          width: 500px;
+        }
+      }
+      .precioMass-container {
+        @include mixins.flexer(flex, column, center);
+        h2,
+        p {
+          margin-left: 3%;
+        }
+        h2{
+          @extend .fontSizeClassic;
+        }
+        p {
+          @extend .fontSizeSmaller;
+        }
+        #precioMass {
+          @extend .fontSizeClassic;
+          margin-top: 5%;
+        }
+        .idMass {
+          @extend .buttonClassic;
+        }
+        .idMass:hover {
+          background-color: rgb(18, 18, 18);
+        }
+      }
+    }
+    .service2:hover {
+      background-color: rgb(12, 12, 12);
+    }
+    .service3 {
+      @include mixins.flexer(flex, row, center);
+      @extend .fundamentalStyles;
+      margin-top: 1%;
+      align-items: center;
+      .img-container4 {
+        img {
+          width: 500px;
+        }
+      }
+      .precioSupreme-container {
+        @include mixins.flexer(flex, column, center);
+        h2,
+        p {
+          margin-left: 3%;
+        }
+        h2{
+          @extend .fontSizeClassic;
+        }
+        p {
+          @extend .fontSizeSmaller;
+        }
+        #precioSupreme {
+          @extend .fontSizeClassic;
+          margin-top: 5%;
+        }
+        .idSupreme {
+          @extend .buttonClassic;
+        }
+        .idSupreme:hover {
+          background-color: rgb(18, 18, 18);
+        }
+      }
+    }
+    .service3:hover {
+      background-color: rgb(12, 12, 12);
+    }
+  }
+  .basket-container {
+    @extend .fundamentalStyles;
+    color: magenta;
+    margin-top: 1%;
+    #basket {
+      @extend .fundamentalStyles;
+      @include mixins.flexer(flex, column, center);
+      .basket-item {
+        @include mixins.flexer(flex, column, center);
+        margin: 1%;
+        .img-container-basket {
+          img {
+            width: 400px;
+          }
+        }
+      }
+    }
+    #total {
+      @extend .fontSizeClassic;
+      display: flex;
+      justify-content: right;
+    }
+  }
+  .basket-container:hover {
+    background-color: rgb(12, 12, 12);
+  }
+}
+
+footer {
+  @include mixins.flexer(flex, row, right);
+  margin-top: 1%;
+  padding: 0.5%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background-color: rgb(6, 6, 6);
+  border-radius: 10px;
+  color: white;
+}
+footer:hover {
+  background-color: rgb(12, 12, 12);
+}
