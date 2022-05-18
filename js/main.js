@@ -77,7 +77,7 @@ function displayServices() {
 
 function addToCart(id) {
   if (cart.some((service) => service.id === id)) {
-    unitChange('plus', id)
+    alert('Ya tienes ese producto en tu carrito!')
   } else {
     cart.push(services.find((service) => service.id === id));
     let cartJSON = JSON.stringify(cart);
@@ -92,7 +92,7 @@ function calcCart() {
   let value = 0;
   if (displayCart) {
     displayCart.forEach((service) => {
-      value = value + service.price*service.numberOfUnits;
+      value = value + service.price * service.numberOfUnits;
       total.innerHTML = `Total a pagar: ${value}$`;
     });
   }
@@ -142,12 +142,16 @@ function unitChange(action, id) {
     foundItem.numberOfUnits++;
     displayCart.push(foundItem);
     console.log(displayCart);
-  } else if (foundItem.numberOfUnits < 0) {
-    displayCart = displayCart.filter((displayCart) => displayCart !== foundItem);
-  } console.log(displayCart);
+  }
+  if (foundItem.numberOfUnits <= 0) {
+    displayCart = displayCart.filter(
+      (displayCart) => displayCart !== foundItem
+    );
+  }
+  console.log(displayCart);
 
   let displayCartJSON = JSON.stringify(displayCart);
-  localStorage.setItem('cart', displayCartJSON);
+  localStorage.setItem("cart", displayCartJSON);
   renderCart();
 }
 
