@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Akshar&family=Lato&display=swap");
-.fundamentalStyles, .c-point .corpus1, .c-point .services-container .service1, .c-point .services-container .service2, .c-point .services-container .service3, .c-point .basket-container, .c-point .basket-container #basket {
+.fundamentalStyles, .c-point .corpus1, .c-point .services, .c-point .shoppingCart-container {
   background-color: rgb(6, 6, 6);
   align-items: center;
   padding: 1%;
@@ -8,23 +8,22 @@
   border-radius: 10px;
 }
 
-.buttonClassic, .c-point .services-container .service1 .precioMini-container #idMini, .c-point .services-container .service2 .precioMass-container .idMass, .c-point .services-container .service3 .precioSupreme-container .idSupreme {
-  width: 22%;
+.buttonClassic, .c-point .services .grid-item .priceTagBuy .getMeButton {
+  width: 23%;
   background-color: rgb(12, 12, 12);
   padding: 0.3%;
   color: magenta;
-  margin-left: 60%;
   border-radius: 5px;
   font-family: "Lato", sans-serif;
   font-size: 3.2vh;
   font-weight: bolder;
 }
 
-.fontSizeClassic, .c-point .corpus1 .text-container .text1, .c-point .corpus1 .text-container .text2, .c-point .services-container .service1 .precioMini-container h2, .c-point .services-container .service1 .precioMini-container #precioMini, .c-point .services-container .service2 .precioMass-container h2, .c-point .services-container .service2 .precioMass-container #precioMass, .c-point .services-container .service3 .precioSupreme-container h2, .c-point .services-container .service3 .precioSupreme-container #precioSupreme, .c-point .basket-container #total {
+.fontSizeClassic, nav ul li, .c-point .corpus1 .text-container .text1, .c-point .corpus1 .text-container .text2, .c-point .services .grid-item .priceTagBuy #price {
   font-size: 3.8vh;
 }
 
-.fontSizeSmaller, .c-point .services-container .service1 .precioMini-container p, .c-point .services-container .service2 .precioMass-container p, .c-point .services-container .service3 .precioSupreme-container p {
+.fontSizeSmaller {
   font-size: 2vh;
 }
 
@@ -32,7 +31,7 @@
   font-size: 7vh;
 }
 
-.fontSizeClassicR {
+.fontSizeClassicR, .c-point .services .grid-item {
   font-size: 2.8vh;
 }
 
@@ -48,6 +47,7 @@
   padding: 0%;
   margin: 0%;
   font-family: "Lato", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -62,43 +62,66 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  height: auto;
 }
 nav ul {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-  align-items: center;
 }
 nav ul li {
-  font-size: 3vh;
+  margin: 1% 0 0 1%;
 }
 nav ul li a {
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-nav ul li .li1 img {
-  width: 40%;
+nav ul li a:hover {
+  background-color: rgb(16, 16, 16);
+}
+nav ul li .li1 .fatori {
+  color: yellow;
+}
+nav ul li .li1 .it {
+  color: magenta;
+}
+nav ul li .li1 .solutions {
+  color: cyan;
 }
 nav ul li .li2 {
   color: yellow;
+  padding: 3%;
 }
 nav ul li .li3 {
   color: magenta;
+  padding: 3%;
 }
 nav ul li .li4 {
   color: cyan;
+  padding: 3%;
 }
-nav ul li .li5 {
-  color: white;
-}
-nav ul li:not(:first-child) a {
-  padding: 5%;
-}
-nav ul li:not(:first-child) a:hover {
-  background-color: rgb(20, 20, 20);
+@media screen and (max-width: 1400px) {
+  nav {
+    height: auto;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  nav ul li {
+    font-size: 3.8vh;
+    text-align: center;
+    width: 100%;
+    margin: 1% 0% 3%;
+  }
+  nav ul li .li1 img {
+    margin: 0 15%;
+    width: 50%;
+  }
 }
 
 .c-point {
-  margin-top: 6%;
+  margin-top: 5%;
 }
 .c-point .corpus1 {
   display: flex;
@@ -109,6 +132,10 @@ nav ul li:not(:first-child) a:hover {
 .c-point .corpus1 .img-container1 img {
   width: 1000px;
   border-radius: 3px;
+}
+.c-point .corpus1 .text-container {
+  text-align: center;
+  padding: 1%;
 }
 .c-point .corpus1 .text-container .title1 {
   margin: 1%;
@@ -122,119 +149,87 @@ nav ul li:not(:first-child) a:hover {
 .c-point .corpus1:hover {
   background-color: rgb(12, 12, 12);
 }
-.c-point .services-container {
-  display: flex;
-  flex-direction: column;
+@media screen and (max-width: 1400px) {
+  .c-point {
+    margin-top: 45%;
+  }
+  .c-point .corpus1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c-point .corpus1 .img-container1 img {
+    width: 100%;
+  }
+}
+.c-point .services {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 1fr;
   justify-content: center;
   color: magenta;
 }
-.c-point .services-container .service1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.c-point .services-container .service1 .img-container2 img {
-  width: 500px;
-}
-.c-point .services-container .service1 .precioMini-container {
+.c-point .services .grid-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 90%;
+  width: 100%;
+  text-align: center;
+  margin: 5%;
+  padding: 5%;
+  border-radius: 10px;
 }
-.c-point .services-container .service1 .precioMini-container h2,
-.c-point .services-container .service1 .precioMini-container p {
-  margin-left: 3%;
+.c-point .services .grid-item .img-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
-.c-point .services-container .service1 .precioMini-container #precioMini {
-  margin-top: 5%;
-}
-.c-point .services-container .service1 .precioMini-container #idMini:hover {
-  background-color: rgb(18, 18, 18);
-}
-.c-point .services-container .service1:hover {
-  background-color: rgb(12, 12, 12);
-}
-.c-point .services-container .service2 {
+.c-point .services .grid-item .priceTagBuy {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-top: 1%;
-  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding: 1%;
 }
-.c-point .services-container .service2 .img-container3 img {
-  width: 500px;
+.c-point .services .grid-item .priceTagBuy .getMeButton {
+  display: flex;
+  justify-content: flex-end;
 }
-.c-point .services-container .service2 .precioMass-container {
+.c-point .services .grid-item .priceTagBuy .getMeButton:hover {
+  background-color: rgb(16, 16, 16);
+  margin: 0 0 0.3% 0.3%;
+}
+.c-point .services .grid-item .priceTagBuy #price {
+  margin-right: 6%;
+  display: flex;
+  justify-content: flex-end;
+}
+.c-point .services .grid-item:hover {
+  background-color: rgb(12, 12, 12);
+}
+@media screen and (max-width: 1400px) {
+  .c-point .services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.c-point .shoppingCart-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.c-point .services-container .service2 .precioMass-container h2,
-.c-point .services-container .service2 .precioMass-container p {
-  margin-left: 3%;
-}
-.c-point .services-container .service2 .precioMass-container #precioMass {
-  margin-top: 5%;
-}
-.c-point .services-container .service2 .precioMass-container .idMass:hover {
-  background-color: rgb(18, 18, 18);
-}
-.c-point .services-container .service2:hover {
-  background-color: rgb(12, 12, 12);
-}
-.c-point .services-container .service3 {
-  display: flex;
-  flex-direction: row;
+  margin-top: 3%;
   justify-content: center;
-  margin-top: 1%;
-  align-items: center;
-}
-.c-point .services-container .service3 .img-container4 img {
-  width: 500px;
-}
-.c-point .services-container .service3 .precioSupreme-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.c-point .services-container .service3 .precioSupreme-container h2,
-.c-point .services-container .service3 .precioSupreme-container p {
-  margin-left: 3%;
-}
-.c-point .services-container .service3 .precioSupreme-container #precioSupreme {
-  margin-top: 5%;
-}
-.c-point .services-container .service3 .precioSupreme-container .idSupreme:hover {
-  background-color: rgb(18, 18, 18);
-}
-.c-point .services-container .service3:hover {
-  background-color: rgb(12, 12, 12);
-}
-.c-point .basket-container {
   color: magenta;
-  margin-top: 1%;
 }
-.c-point .basket-container #basket {
+.c-point .shoppingCart-container .shoppingCart {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
-.c-point .basket-container #basket .basket-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 1%;
-}
-.c-point .basket-container #basket .basket-item .img-container-basket img {
-  width: 400px;
-}
-.c-point .basket-container #total {
-  display: flex;
-  justify-content: right;
-}
-.c-point .basket-container:hover {
-  background-color: rgb(12, 12, 12);
+.c-point .shoppingCart-container .shoppingCart .img-container img {
+  width: 20%;
 }
 
 footer {

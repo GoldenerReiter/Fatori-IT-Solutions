@@ -7,6 +7,7 @@
   padding: 0%;
   margin: 0%;
   font-family: "Lato", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,46 +22,66 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  height: auto;
   ul {
     @include mixins.gridder(grid, 3fr 1fr 1fr 1fr 1fr);
-    align-items: center;
     li {
-      font-size: 3vh;
+      @extend .fontSizeClassic;
+      margin: 1% 0 0 1%;
       a {
         text-decoration: none;
-        border-radius: 10px;
+        border-radius: 5px;
+      }
+      a:hover {
+        background-color: rgb(16, 16, 16);
       }
       .li1 {
-        img {
-          width: 40%;
+        .fatori {
+          color: yellow;
+        }
+        .it {
+          color: magenta;
+        }
+        .solutions {
+          color: cyan;
         }
       }
       .li2 {
         color: yellow;
+        padding: 3%;
       }
       .li3 {
         color: magenta;
+        padding: 3%;
       }
       .li4 {
         color: cyan;
-      }
-      .li5 {
-        color: white;
+        padding: 3%;
       }
     }
-    li:not(:first-child) {
-      a {
-        padding: 5%;
-      }
-      a:hover {
-        background-color: rgb(20, 20, 20);
+  }
+  @media screen and (max-width: 1400px) {
+    height: auto;
+    ul {
+      @include mixins.flexer(flex, column, center);
+      li {
+        font-size: 3.8vh;
+        text-align: center;
+        width: 100%;
+        margin: 1% 0% 3%;
+        .li1 {
+          img {
+            margin: 0 15%;
+            width: 50%;
+          }
+        }
       }
     }
   }
 }
 
 .c-point {
-  margin-top: 6%;
+  margin-top: 5%;
   .corpus1 {
     @include mixins.flexer(flex, row, center);
     @extend .fundamentalStyles;
@@ -72,6 +93,8 @@ nav {
       }
     }
     .text-container {
+      text-align: center;
+      padding: 1%;
       .title1 {
         margin: 1%;
         @extend .fontSizeBig;
@@ -89,145 +112,81 @@ nav {
   .corpus1:hover {
     background-color: rgb(12, 12, 12);
   }
-  .services-container {
-    @include mixins.flexer(flex, column, center);
-    color: magenta;
-    .service1 {
-      @include mixins.flexer(flex, row, center);
-      @extend .fundamentalStyles;
-      align-items: center;
-      .img-container2 {
-        img {
-          width: 500px;
-        }
-      }
-      .precioMini-container {
-        @include mixins.flexer(flex, column, center);
-        h2,
-        p {
-          margin-left: 3%;
-        }
-        h2{
-          @extend .fontSizeClassic;
-        }
-        p {
-          @extend .fontSizeSmaller;
-        }
-        #precioMini {
-          margin-top: 5%;
-          @extend .fontSizeClassic;
-        }
-        #idMini {
-          @extend .buttonClassic;
-        }
-        #idMini:hover {
-          background-color: rgb(18, 18, 18);
-        }
-      }
-    }
-    .service1:hover {
-      background-color: rgb(12, 12, 12);
-    }
-    .service2 {
-      @include mixins.flexer(flex, row, center);
-      @extend .fundamentalStyles;
-      margin-top: 1%;
-      align-items: center;
-      .img-container3 {
-        img {
-          width: 500px;
-        }
-      }
-      .precioMass-container {
-        @include mixins.flexer(flex, column, center);
-        h2,
-        p {
-          margin-left: 3%;
-        }
-        h2{
-          @extend .fontSizeClassic;
-        }
-        p {
-          @extend .fontSizeSmaller;
-        }
-        #precioMass {
-          @extend .fontSizeClassic;
-          margin-top: 5%;
-        }
-        .idMass {
-          @extend .buttonClassic;
-        }
-        .idMass:hover {
-          background-color: rgb(18, 18, 18);
-        }
-      }
-    }
-    .service2:hover {
-      background-color: rgb(12, 12, 12);
-    }
-    .service3 {
-      @include mixins.flexer(flex, row, center);
-      @extend .fundamentalStyles;
-      margin-top: 1%;
-      align-items: center;
-      .img-container4 {
-        img {
-          width: 500px;
-        }
-      }
-      .precioSupreme-container {
-        @include mixins.flexer(flex, column, center);
-        h2,
-        p {
-          margin-left: 3%;
-        }
-        h2{
-          @extend .fontSizeClassic;
-        }
-        p {
-          @extend .fontSizeSmaller;
-        }
-        #precioSupreme {
-          @extend .fontSizeClassic;
-          margin-top: 5%;
-        }
-        .idSupreme {
-          @extend .buttonClassic;
-        }
-        .idSupreme:hover {
-          background-color: rgb(18, 18, 18);
-        }
-      }
-    }
-    .service3:hover {
-      background-color: rgb(12, 12, 12);
-    }
-  }
-  .basket-container {
-    @extend .fundamentalStyles;
-    color: magenta;
-    margin-top: 1%;
-    #basket {
-      @extend .fundamentalStyles;
+  @media screen and (max-width: 1400px) {
+    margin-top: 45%;
+    .corpus1 {
       @include mixins.flexer(flex, column, center);
-      .basket-item {
-        @include mixins.flexer(flex, column, center);
-        margin: 1%;
-        .img-container-basket {
-          img {
-            width: 400px;
-          }
+      .img-container1 {
+        img {
+          width: 100%;
         }
       }
     }
-    #total {
-      @extend .fontSizeClassic;
-      display: flex;
-      justify-content: right;
+  }
+
+  .services {
+    @include mixins.supah-gridder(grid, 2fr 2fr 2fr, 1fr);
+    @extend .fundamentalStyles;
+    justify-content: center;
+    color: magenta;
+    .grid-item {
+      @include mixins.flexer(flex, column, center);
+      .img-container {
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
+      @extend .fontSizeClassicR;
+      height: 90%;
+      width: 100%;
+      text-align: center;
+      margin: 5%;
+      padding: 5%;
+      border-radius: 10px;
+      .priceTagBuy {
+        @include mixins.flexer(flex, row, flex-end);
+        margin-top: auto;
+        padding: 1%;
+        .getMeButton {
+          @extend .buttonClassic;
+          display: flex;
+          justify-content: flex-end;
+        }
+        .getMeButton:hover {
+          background-color: rgb(16, 16, 16);
+          margin: 0 0 0.3% 0.3%;
+        }
+        #price {
+          @extend .fontSizeClassic;
+          margin-right: 6%;
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+    .grid-item:hover {
+      background-color: rgb(12, 12, 12);
+    }
+    @media screen and (max-width: 1400px) {
+      @include mixins.flexer(flex, column, center);
     }
   }
-  .basket-container:hover {
-    background-color: rgb(12, 12, 12);
+  .shoppingCart-container {
+    @include mixins.flexer(flex, column, center);
+    @extend .fundamentalStyles;
+    margin-top: 3%;
+    justify-content: center;
+    color: magenta;
+    .shoppingCart {
+      @include mixins.flexer(flex, row, center);
+      .img-container {
+        img {
+          width: 20%;
+        }
+      }
+    }
   }
 }
 
