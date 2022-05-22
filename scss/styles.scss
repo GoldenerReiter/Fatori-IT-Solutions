@@ -209,6 +209,10 @@ nav {
     }
   }
 }
+.toastifyError {
+  align-items: center;
+  border-radius: 10px;
+}
 
 footer {
   @include mixins.flexer(flex, row, right);

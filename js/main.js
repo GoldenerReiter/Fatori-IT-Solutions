@@ -82,8 +82,22 @@ function saveToStorage(arr, item) {
   renderCart();
 }
 
+function toastifyError() {
+  Toastify({
+    text: "Ya tienes ese producto en tu carrito!",
+    duration: 3000,
+    className: "toastifyError",
+    style: {
+      background: "rgb(12, 12, 12)",
+      color: "magenta",
+      padding: "1%",
+      margin: "auto",
+    },
+  }).showToast();
+}
+
 function disjunction(arr, id) {
-  arr.some((service) => service.id === id) ? alert("Ya tienes ese producto en tu carrito!") : saveToStorage(arr, services.find((item) => item.id === id));
+  arr.some((service) => service.id === id) ? toastifyError() : saveToStorage(arr, services.find((item) => item.id === id));
 }
 
 function addToCart(id) {

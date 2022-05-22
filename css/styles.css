@@ -249,6 +249,11 @@ nav ul li .li4 {
   margin-left: 11%;
 }
 
+.toastifyError {
+  align-items: center;
+  border-radius: 10px;
+}
+
 footer {
   display: flex;
   flex-direction: row;
