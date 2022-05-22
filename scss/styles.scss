@@ -123,7 +123,7 @@ nav {
       }
     }
   }
-
+  // here starts services.html
   .services {
     @include mixins.supah-gridder(grid, 2fr 2fr 2fr, 1fr);
     @extend .fundamentalStyles;
@@ -158,6 +158,10 @@ nav {
           background-color: rgb(16, 16, 16);
           margin: 0 0 0.3% 0.3%;
         }
+        .getMeButton:active {
+          background-color: magenta;
+          color: black;
+        }
         #price {
           @extend .fontSizeClassic;
           margin-right: 6%;
@@ -181,9 +185,25 @@ nav {
     color: magenta;
     .shoppingCart {
       @include mixins.flexer(flex, row, center);
-      .img-container {
-        img {
-          width: 20%;
+      .item-container {
+        .img-container {
+          img {
+            width: 20%;
+          }
+        }
+        .button {
+          @extend .buttonClassic;
+        }
+        .button:hover {
+          background-color: rgb(16, 16, 16);
+        }
+        .button:focus {
+          background-color: magenta;
+          color: black;
+        }
+        .numberOfUnits {
+          @include mixins.flexer(flex, column, center);
+          margin-left: 11%;
         }
       }
     }

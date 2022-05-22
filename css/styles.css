@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 
-.buttonClassic, .c-point .services .grid-item .priceTagBuy .getMeButton {
+.buttonClassic, .c-point .services .grid-item .priceTagBuy .getMeButton, .c-point .shoppingCart-container .shoppingCart .item-container .button {
   width: 23%;
   background-color: rgb(12, 12, 12);
   padding: 0.3%;
@@ -200,6 +200,10 @@ nav ul li .li4 {
   background-color: rgb(16, 16, 16);
   margin: 0 0 0.3% 0.3%;
 }
+.c-point .services .grid-item .priceTagBuy .getMeButton:active {
+  background-color: magenta;
+  color: black;
+}
 .c-point .services .grid-item .priceTagBuy #price {
   margin-right: 6%;
   display: flex;
@@ -228,8 +232,21 @@ nav ul li .li4 {
   flex-direction: row;
   justify-content: center;
 }
-.c-point .shoppingCart-container .shoppingCart .img-container img {
+.c-point .shoppingCart-container .shoppingCart .item-container .img-container img {
   width: 20%;
+}
+.c-point .shoppingCart-container .shoppingCart .item-container .button:hover {
+  background-color: rgb(16, 16, 16);
+}
+.c-point .shoppingCart-container .shoppingCart .item-container .button:focus {
+  background-color: magenta;
+  color: black;
+}
+.c-point .shoppingCart-container .shoppingCart .item-container .numberOfUnits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 11%;
 }
 
 footer {

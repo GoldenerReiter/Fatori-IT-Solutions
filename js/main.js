@@ -75,15 +75,20 @@ function displayServices() {
   });
 }
 
+function saveToStorage(arr, item) {
+    arr.push(item);
+    let arrJSON = JSON.stringify(arr);
+    localStorage.setItem("cart", arrJSON);
+    renderCart();
+}
+
 function addToCart(id) {
-   if (cart.some((service) => service.id === id)) {
-    alert('Ya tienes ese producto en tu carrito!')
+  let displayCart = JSON.parse(localStorage.getItem("cart"));
+  if (displayCart) {
+    displayCart.some((service) => service.id === id) ? alert('Ya tienes ese producto en tu carrito!') : saveToStorage(displayCart, services.find((item) => item.id === id));
   } else {
-    cart.push(services.find((service) => service.id === id));
-    let cartJSON = JSON.stringify(cart);
-    localStorage.setItem("cart", cartJSON);
-     renderCart();
-  };
+    cart.some((service) => service.id === id) ? alert('Ya tienes ese producto en tu carrito!') : saveToStorage(cart, services.find((item) => item.id === id));
+  }
 }
 
 function calcCart() {
@@ -103,7 +108,7 @@ function renderCart() {
   let displayCart = JSON.parse(localStorage.getItem("cart"));
   if (displayCart) {
     displayCart.forEach((service) => {
-      cartQS.innerHTML += `<div class="cart-item">
+      cartQS.innerHTML += `<div class="item-container"><div class="cart-item">
     <div class="img-container">
       <img src="${service.img}" alt="${service.nomen}">
     </div>
@@ -115,11 +120,12 @@ function renderCart() {
       ${service.price}$
       </p>
       <p class="units">
-      <button type="button" class="minusButton button" id="id-${service.mininomen}" onclick="unitChange('minus', ${service.id})">-</button>
-      <div class="numberOfUnits">${service.numberOfUnits}</div>
       <button type="button" class="plusButton button" id="id-${service.mininomen}" onclick="unitChange('plus', ${service.id})">+</button>
+      <div class="numberOfUnits">${service.numberOfUnits}</div>
+      <button type="button" class="minusButton button" id="id-${service.mininomen}" onclick="unitChange('minus', ${service.id})">-</button>
       </p>
     </div>
+  </div>
   </div>`;
     });
   } else {
@@ -130,24 +136,22 @@ function renderCart() {
 
 function unitChange(action, id) {
   cart = [];
+  JSON.parse(localStorage.getItem("cart"));
   let displayCart = JSON.parse(localStorage.getItem("cart"));
   let foundItem = displayCart.find((item) => item.id === id);
   displayCart = displayCart.filter((displayCart) => displayCart !== foundItem);
-  
   if (action === "minus" && foundItem.numberOfUnits > 0) {
     foundItem.numberOfUnits--;
-    displayCart.push(foundItem);
-    console.log(displayCart);
+    saveToStorage(displayCart, foundItem);
   } else if (action === "plus") {
     foundItem.numberOfUnits++;
-    displayCart.push(foundItem);
-    console.log(displayCart);
+    saveToStorage(displayCart, foundItem);
+  } else if (foundItem.numberOfUnits === 0) {
+    displayCart.filter((displayCart) => displayCart !== foundItem);
+    let cartJSON = JSON.stringify(displayCart);
+    localStorage.setItem("cart", cartJSON);
+    renderCart();
   }
-  console.log(displayCart);
-
-  let displayCartJSON = JSON.stringify(displayCart);
-  localStorage.setItem("cart", displayCartJSON);
-  renderCart();
 }
 
 displayServices();
