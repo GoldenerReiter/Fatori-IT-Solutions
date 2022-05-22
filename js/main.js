@@ -76,19 +76,19 @@ function displayServices() {
 }
 
 function saveToStorage(arr, item) {
-    arr.push(item);
-    let arrJSON = JSON.stringify(arr);
-    localStorage.setItem("cart", arrJSON);
-    renderCart();
+  arr.push(item);
+  let arrJSON = JSON.stringify(arr);
+  localStorage.setItem("cart", arrJSON);
+  renderCart();
+}
+
+function disjunction(arr, id) {
+  arr.some((service) => service.id === id) ? alert("Ya tienes ese producto en tu carrito!") : saveToStorage(arr, services.find((item) => item.id === id));
 }
 
 function addToCart(id) {
   let displayCart = JSON.parse(localStorage.getItem("cart"));
-  if (displayCart) {
-    displayCart.some((service) => service.id === id) ? alert('Ya tienes ese producto en tu carrito!') : saveToStorage(displayCart, services.find((item) => item.id === id));
-  } else {
-    cart.some((service) => service.id === id) ? alert('Ya tienes ese producto en tu carrito!') : saveToStorage(cart, services.find((item) => item.id === id));
-  }
+  displayCart ? disjunction(displayCart, id) : disjunction(cart, id);
 }
 
 function calcCart() {
