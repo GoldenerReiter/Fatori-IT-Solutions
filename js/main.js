@@ -82,6 +82,17 @@ function saveToStorage(arr, item) {
   renderCart();
 }
 
+function colourRandomizer() {
+  let value = Math.floor(Math.random() * 9);
+  if (value > 6) {
+    return "yellow";
+  } else if (value >= 3 && value <= 6) {
+    return "cyan";
+  } else if (value < 3) {
+    return "magenta";
+  }
+}
+
 function toastifyError() {
   Toastify({
     text: "Ya tienes ese producto en tu carrito!",
@@ -89,7 +100,7 @@ function toastifyError() {
     className: "toastifyError",
     style: {
       background: "rgb(12, 12, 12)",
-      color: "magenta",
+      color: colourRandomizer(),
       padding: "1%",
       margin: "auto",
     },
