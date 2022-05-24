@@ -66,7 +66,7 @@ nav {
 }
 nav ul {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr 3fr 1fr 1fr;
 }
 nav ul li {
   margin: 1% 0 0 1%;
@@ -97,6 +97,10 @@ nav ul li .li3 {
 }
 nav ul li .li4 {
   color: cyan;
+  padding: 1%;
+}
+nav ul li .li5 {
+  color: white;
   padding: 3%;
 }
 @media screen and (max-width: 1400px) {
@@ -224,7 +228,6 @@ nav ul li .li4 {
   flex-direction: column;
   justify-content: center;
   margin-top: 3%;
-  justify-content: center;
   color: magenta;
 }
 .c-point .shoppingCart-container .shoppingCart {

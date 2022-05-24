@@ -48,10 +48,7 @@ let services = [
   },
 ];
 
-let cart = [];
-
 const servicesQS = document.querySelector(".services");
-const cartQS = document.querySelector(".shoppingCart");
 
 function displayServices() {
   services.forEach((service) => {
@@ -72,6 +69,7 @@ function displayServices() {
       <button type="button" class="getMeButton" id="id-${service.mininomen}" onclick="addToCart(${service.id})">Get me!</button>
     </div>
   </div>`;
+  renderUnitsOfCart();
   });
 }
 
@@ -79,7 +77,7 @@ function saveToStorage(arr, item) {
   arr.push(item);
   let arrJSON = JSON.stringify(arr);
   localStorage.setItem("cart", arrJSON);
-  renderCart();
+  renderUnitsOfCart();
 }
 
 function colourRandomizer() {
@@ -111,73 +109,21 @@ function disjunction(arr, id) {
   arr.some((service) => service.id === id) ? toastifyError() : saveToStorage(arr, services.find((item) => item.id === id));
 }
 
+function renderUnitsOfCart() {
+  let displayCart = JSON.parse(localStorage.getItem("cart"));
+  const cartNumberOfItemsQS = document.querySelector("#cartNumberOfItems");
+  let value = 0;
+  displayCart.forEach((service) => {
+      value = value + service.numberOfUnits;
+      cartNumberOfItemsQS.innerHTML = value;
+  })
+  return;
+}
+
 function addToCart(id) {
   let displayCart = JSON.parse(localStorage.getItem("cart"));
   displayCart ? disjunction(displayCart, id) : disjunction(cart, id);
-}
-
-function calcCart() {
-  let displayCart = JSON.parse(localStorage.getItem("cart"));
-  let total = document.querySelector("#total");
-  let value = 0;
-  if (displayCart) {
-    displayCart.forEach((service) => {
-      value = value + service.price * service.numberOfUnits;
-      total.innerHTML = `Total a pagar: ${value}$`;
-    });
-  }
-}
-
-function renderCart() {
-  cartQS.innerHTML = "";
-  let displayCart = JSON.parse(localStorage.getItem("cart"));
-  if (displayCart) {
-    displayCart.forEach((service) => {
-      cartQS.innerHTML += `<div class="item-container"><div class="cart-item">
-    <div class="img-container">
-      <img src="${service.img}" alt="${service.nomen}">
-    </div>
-    <h3>
-      ${service.nomen}
-    </h3>
-    <div class="priceTagBuy">
-      <p id="price">
-      ${service.price}$
-      </p>
-      <p class="units">
-      <button type="button" class="plusButton button" id="id-${service.mininomen}" onclick="unitChange('plus', ${service.id})">+</button>
-      <div class="numberOfUnits">${service.numberOfUnits}</div>
-      <button type="button" class="minusButton button" id="id-${service.mininomen}" onclick="unitChange('minus', ${service.id})">-</button>
-      </p>
-    </div>
-  </div>
-  </div>`;
-    });
-  } else {
-    cartQS.innerHTML += "No hay nada aquí.";
-  }
-  calcCart();
-}
-
-function unitChange(action, id) {
-  cart = [];
-  JSON.parse(localStorage.getItem("cart"));
-  let displayCart = JSON.parse(localStorage.getItem("cart"));
-  let foundItem = displayCart.find((item) => item.id === id);
-  displayCart = displayCart.filter((displayCart) => displayCart !== foundItem);
-  if (action === "minus" && foundItem.numberOfUnits > 0) {
-    foundItem.numberOfUnits--;
-    saveToStorage(displayCart, foundItem);
-  } else if (action === "plus") {
-    foundItem.numberOfUnits++;
-    saveToStorage(displayCart, foundItem);
-  } else if (foundItem.numberOfUnits === 0) {
-    displayCart.filter((displayCart) => displayCart !== foundItem);
-    let cartJSON = JSON.stringify(displayCart);
-    localStorage.setItem("cart", cartJSON);
-    renderCart();
-  }
+  renderUnitsOfCart();
 }
 
 displayServices();
-renderCart();
