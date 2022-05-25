@@ -115,7 +115,7 @@ function renderUnitsOfCart() {
   let value = 0;
   displayCart.forEach((service) => {
       value = value + service.numberOfUnits;
-      cartNumberOfItemsQS.innerHTML = value;
+      cartNumberOfItemsQS.innerHTML = `<span style="color:${colourRandomizer()};">${value}</span>`;
   })
   return;
 }
