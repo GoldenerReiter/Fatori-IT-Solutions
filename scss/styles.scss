@@ -221,7 +221,7 @@ nav {
 }
 
 footer {
-  @include mixins.flexer(flex, row, right);
+  @include mixins.gridder(grid, 4fr 1fr);
   margin-top: 1%;
   padding: 0.5%;
   bottom: 0%;
@@ -230,6 +230,7 @@ footer {
   background-color: rgb(6, 6, 6);
   border-radius: 10px;
   color: white;
+  font-size: 2vh;
 }
 footer:hover {
   background-color: rgb(12, 12, 12);

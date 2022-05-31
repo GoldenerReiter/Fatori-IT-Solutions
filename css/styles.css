@@ -258,9 +258,8 @@ nav ul li .li5 {
 }
 
 footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
   margin-top: 1%;
   padding: 0.5%;
   bottom: 0%;
@@ -269,6 +268,7 @@ footer {
   background-color: rgb(6, 6, 6);
   border-radius: 10px;
   color: white;
+  font-size: 2vh;
 }
 
 footer:hover {
