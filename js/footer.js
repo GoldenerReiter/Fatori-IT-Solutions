@@ -8,7 +8,8 @@ let authorQuoteQS = document.querySelector(".author-quote")
 fetch("https://stoicquotesapi.com/v1/api/quotes/random")
     .then((res) => res.json())
     .then((res) => JSON.stringify(res))
-    .then((res) => localStorage.setItem("quote", res));
+	.then((res) => localStorage.setItem("quote", res))
+	.catch (footerQuoteQS.innerHTML = "Quote not found.");
 
 let quoteJSON = localStorage.getItem("quote");
 let quote = JSON.parse(quoteJSON);
@@ -30,7 +31,8 @@ const options = {
 fetch('https://deep-translate1.p.rapidapi.com/language/translate/v2', options)
 	.then(res => res.json())
     .then((res) => JSON.stringify(res))
-    .then((res) => localStorage.setItem("translQuote", res));
+	.then((res) => localStorage.setItem("translQuote", res))
+	.catch (footerQuoteQS.innerHTML = "Quote not found.");
 
 let translQuoteJSON = localStorage.getItem("translQuote");
 let translQuote = JSON.parse(translQuoteJSON);
