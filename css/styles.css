@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Akshar&family=Lato&display=swap");
-.fundamentalStyles, .c-point .corpus1, .c-point .services, .c-point .shoppingCart-container {
+.fundamentalStyles, .c-point .corpus1, .c-point .services, .c-point .shoppingCart-container, .c-point .aboutUs-container .aboutUs {
   background-color: rgb(6, 6, 6);
   align-items: center;
   padding: 1%;
@@ -19,7 +19,7 @@
   font-weight: bolder;
 }
 
-.fontSizeClassic, nav ul li, .c-point .corpus1 .text-container .text1, .c-point .corpus1 .text-container .text2, .c-point .services .grid-item .priceTagBuy #price {
+.fontSizeClassic, nav ul li, .c-point .corpus1 .text-container .text1, .c-point .corpus1 .text-container .text2, .c-point .services .grid-item .priceTagBuy #price, .c-point .aboutUs-container .aboutUs p {
   font-size: 3.8vh;
 }
 
@@ -27,7 +27,7 @@
   font-size: 2vh;
 }
 
-.fontSizeBig, .c-point .corpus1 .text-container .title1 {
+.fontSizeBig, .c-point .corpus1 .text-container .title1, .c-point .aboutUs-container .aboutUs h1 {
   font-size: 7vh;
 }
 
@@ -250,6 +250,13 @@ nav ul li .li5 {
   flex-direction: column;
   justify-content: center;
   margin-left: 11%;
+}
+.c-point .aboutUs-container .aboutUs {
+  color: cyan;
+  text-align: center;
+}
+.c-point .aboutUs-container .aboutUs:hover {
+  background-color: rgb(16, 16, 16);
 }
 
 .toastifyError {

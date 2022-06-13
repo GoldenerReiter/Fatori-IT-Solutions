@@ -213,6 +213,24 @@ nav {
       }
     }
   }
+
+  // About us
+  .aboutUs-container {
+    .aboutUs {
+      @extend .fundamentalStyles;
+      color: cyan;
+      text-align: center;
+      h1 {
+        @extend .fontSizeBig;
+      }
+      p {
+        @extend .fontSizeClassic;
+      }
+    }
+    .aboutUs:hover {
+      background-color: rgb(16, 16, 16);
+    }
+  }
 }
 
 .toastifyError {
