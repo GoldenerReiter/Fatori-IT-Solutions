@@ -48,6 +48,8 @@ let services = [
   },
 ];
 
+let cart = [];
+
 const servicesQS = document.querySelector(".services");
 
 function displayServices() {
@@ -69,7 +71,11 @@ function displayServices() {
       <button type="button" class="getMeButton" id="id-${service.mininomen}" onclick="addToCart(${service.id})">Get me!</button>
     </div>
   </div>`;
-  renderUnitsOfCart();
+    
+  let displayCart = JSON.parse(localStorage.getItem("cart"));
+    if (displayCart) {
+      renderUnitsOfCart();
+    }
   });
 }
 
