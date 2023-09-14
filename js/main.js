@@ -52,6 +52,11 @@ let cart = [];
 
 const servicesQS = document.querySelector(".services");
 
+  // Esta función muestra los servicios en la página web.
+  // Itera a través de cada servicio en el arreglo `services` y agrega
+  // un elemento `div` con la información del servicio a la sección `.services`.
+  // También agrega un botón `Get me!` a cada elemento `div` que llama
+  // a la función `addToCart()` cuando se hace clic.
 function displayServices() {
   services.forEach((service) => {
     servicesQS.innerHTML += `<div class="grid-item">
@@ -79,6 +84,9 @@ function displayServices() {
   });
 }
 
+  // Esta función agrega un elemento `item` al arreglo `arr` y lo guarda
+  // en el almacenamiento local. También llama a la función `renderUnitsOfCart()`
+  // para actualizar el número de elementos en el carrito.
 function saveToStorage(arr, item) {
   arr.push(item);
   let arrJSON = JSON.stringify(arr);
@@ -86,6 +94,9 @@ function saveToStorage(arr, item) {
   renderUnitsOfCart();
 }
 
+  // Esta función genera un color aleatorio para el texto de la notificación.
+  // Utiliza la función `Math.floor()` para obtener un número entero entre 0 y 8,
+  // y luego utiliza un `switch` para asignar el color correspondiente.
 function colourRandomizer() {
   let value = Math.floor(Math.random() * 9);
   if (value > 6) {
@@ -97,6 +108,8 @@ function colourRandomizer() {
   }
 }
 
+  // Esta función muestra una notificación de error utilizando la biblioteca
+  // `Toastify`. La notificación indica que el producto ya está en el carrito.
 function toastifyError() {
   Toastify({
     text: "Ya tienes ese producto en tu carrito!",
@@ -111,10 +124,15 @@ function toastifyError() {
   }).showToast();
 }
 
+  // Esta función verifica si el servicio con el ID `id` ya está en el arreglo
+  // `arr`. Si es así, muestra una notificación de error. Si no, agrega el servicio
+  // al arreglo y lo guarda en el almacenamiento local.
 function disjunction(arr, id) {
   arr.some((service) => service.id === id) ? toastifyError() : saveToStorage(arr, services.find((item) => item.id === id));
 }
 
+  // Esta función obtiene el número de elementos en el carrito del almacenamiento local.
+  // Luego, agrega un elemento `span` con el número de elementos al elemento `#cartNumberOfItems`.
 function renderUnitsOfCart() {
   let displayCart = JSON.parse(localStorage.getItem("cart"));
   const cartNumberOfItemsQS = document.querySelector("#cartNumberOfItems");
@@ -126,6 +144,9 @@ function renderUnitsOfCart() {
   return;
 }
 
+  // Esta función llama a la función `disjunction()` para agregar el servicio con el ID
+  // `id` al carrito. Luego, llama a la función `renderUnitsOfCart()` para actualizar
+  // el número de elementos en el carrito.
 function addToCart(id) {
   let displayCart = JSON.parse(localStorage.getItem("cart"));
   displayCart ? disjunction(displayCart, id) : disjunction(cart, id);

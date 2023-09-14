@@ -52,6 +52,14 @@ let cart = [];
 
 const cartQS = document.querySelector(".shoppingCart");
 
+  // Esta función agrega un elemento `item` al arreglo `arr` y lo guarda
+  // en el almacenamiento local. También llama a la función `renderCart()`
+  // para actualizar el carrito.
+  // El parámetro `arr` es el arreglo que contiene los elementos del carrito.
+  // El parámetro `item` es el elemento que se va a agregar al carrito.
+  // La función primero agrega el elemento `item` al arreglo `arr`.
+  // Luego, serializa el arreglo `arr` en formato JSON y lo guarda en el almacenamiento local.
+  // Finalmente, llama a la función `renderCart()` para actualizar el carrito.
 function saveToStorage(arr, item) {
   arr.push(item);
   let arrJSON = JSON.stringify(arr);
@@ -59,6 +67,11 @@ function saveToStorage(arr, item) {
   renderCart();
 }
 
+  // Esta función calcula el total a pagar por los artículos en el carrito.
+  // El parámetro `displayCart` es el arreglo que contiene los artículos en el carrito.
+  // La función primero inicializa la variable `value` a 0.
+  // Luego, itera a través del arreglo `displayCart` y agrega el precio de cada artículo al valor total.
+  // Finalmente, establece el contenido del elemento `#total` con el valor total.
 function calcCart() {
   let displayCart = JSON.parse(localStorage.getItem("cart"));
   const total = document.querySelector("#total");
@@ -71,6 +84,9 @@ function calcCart() {
   }
 }
 
+  // Esta función genera un color aleatorio para el texto de la notificación.
+  // Utiliza la función `Math.floor()` para obtener un número entero entre 0 y 8,
+  // y luego utiliza un `switch` para asignar el color correspondiente.
 function colourRandomizer() {
   let value = Math.floor(Math.random() * 9);
   if (value > 6) {
@@ -82,6 +98,8 @@ function colourRandomizer() {
   }
 }
 
+  // Esta función obtiene el número de elementos en el carrito del almacenamiento local.
+  // Luego, agrega un elemento `span` con el número de elementos al elemento `#cartNumberOfItems`.
 function renderUnitsOfCart() {
     let displayCart = JSON.parse(localStorage.getItem("cart"));
     const cartNumberOfItemsQS = document.querySelector("#cartNumberOfItems");
@@ -92,6 +110,11 @@ function renderUnitsOfCart() {
     })
 }
 
+  // Esta función renderiza el carrito en la página web.
+  // El parámetro `cartQS` es el elemento DOM que contiene el carrito.
+  // La función primero vacía el contenido del elemento `cartQS`.
+  // Luego, itera a través del arreglo `displayCart` y renderiza cada artículo en el carrito.
+  // Finalmente, llama a las funciones `calcCart()` y `renderUnitsOfCart()` para actualizar el total a pagar y el número de artículos en el carrito.
 function renderCart() {
   cartQS.innerHTML = "";
   let displayCart = JSON.parse(localStorage.getItem("cart"));
@@ -126,6 +149,15 @@ function renderCart() {
     renderUnitsOfCart();
 }
 
+  // Esta función cambia el número de unidades de un artículo en el carrito.
+  // Los parámetros `action` y `id` indican la acción que se va a realizar (agregar o quitar unidades) y el ID del artículo, respectivamente.
+  // La función primero obtiene el arreglo de artículos en el carrito.
+  // Luego, encuentra el artículo con el ID especificado.
+  // Si la acción es "plus", aumenta el número de unidades del artículo en uno.
+  // Si la acción es "minus", reduce el número de unidades del artículo en uno.
+  // Si el número de unidades del artículo es 0, el artículo se elimina del carrito.
+  // Finalmente, el arreglo de artículos se serializa en formato JSON y se guarda en el almacenamiento local.
+  // La función también llama a la función `renderCart()` para actualizar el carrito.
 function unitChange(action, id) {
   cart = [];
   JSON.parse(localStorage.getItem("cart"));
